@@ -16,6 +16,7 @@ pipeline {
 				steps {
 				
 						sleep 10
+					     echo "rohit"
 				
 				}
 		
