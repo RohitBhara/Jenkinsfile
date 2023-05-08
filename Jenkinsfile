@@ -1,36 +1,53 @@
 pipeline {
-   label {
-       label "built-in"
-	   customWorkspace = "/mnt/jenkins"
-   
-   
-   }
-      envoirment {
-	       var1 = " HII IAM ROHIT"
-	    
-	  }
-   
-       stages {
-	      stage("parallel") {
-		    parallel {
-			  stage ("fisrt") {
-			     steps {
-			         sleep 10 
-			  }
-			  
-			  }
-			  stage ("2nd") {
-			    steps {
-				  echo "${var1}"
+
+		agent {
+		
+				label 'built-in'
+		}
+		
+		stages {
+		
+			stage ('parallel-stages'){
+			
+			parallel {
+			
+			stage ('sleep-1'){
+			
+				steps {
+				
+						sleep 10
 				
 				}
-			  }
-			
+		
 			
 			}
-		  
-		  
-		  }
-	   
-	   }
-} 
+			
+			stage ('sleep-2'){
+			
+				steps {
+				
+						sleep 10
+				
+				}
+		
+			
+			}
+			
+			stage ('sleep-3'){
+			
+				steps {
+				
+						sleep 10
+				
+				}
+		
+			
+			}
+
+			
+			}
+
+
+}
+}
+}
